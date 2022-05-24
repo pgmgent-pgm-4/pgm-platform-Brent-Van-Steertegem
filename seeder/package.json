@@ -1,0 +1,38 @@
+{
+  "name": "seeder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/users-create.seeder.js",
+  "scripts": {
+    "seeder:communities": "babel-node src/communities-create.seeder.js --debug",
+    "seeder:posts": "babel-node src/posts-create.seeder.js --debug",
+    "seeder:tags": "babel-node src/tags-create.seeder.js --debug",
+    "seeder:users": "babel-node src/users-create.seeder.js --debug",
+    "delete:communities": "babel-node src/collection-delete.seeder.js Community Communities --debug",
+    "delete:posts": "babel-node src/collection-delete.seeder.js Post Posts --debug",
+    "delete:profiles": "babel-node src/collection-delete.seeder.js Profile Profiles --debug",
+    "delete:tags": "babel-node src/collection-delete.seeder.js Tag Tags --debug",
+    "delete:users": "babel-node src/collection-delete.seeder.js AuthUser AuthUsers --debug",
+    "delete:users-full": "npm run delete:users && npm run delete:profiles"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^6.3.1",
+    "@graphcms/html-to-slate-ast": "^0.5.1",
+    "@graphcms/rich-text-types": "^0.4.0",
+    "awesome-graphql-client": "^0.11.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "jsdom": "^19.0.0",
+    "node-fetch": "^2.6.1",
+    "slate": "^0.78.0",
+    "slate-hyperscript": "^0.62.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/preset-env": "^7.16.5"
+  }
+}
