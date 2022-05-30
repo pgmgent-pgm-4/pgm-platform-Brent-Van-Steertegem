@@ -1,6 +1,8 @@
+import { CurriculumComponent } from "../components/curriculum";
+
 const CurriculumPage = () => {
   return (
-    <p className="text-3xl font-bold underline">Curriculum</p>
+    <CurriculumComponent />
   );
 };
 
