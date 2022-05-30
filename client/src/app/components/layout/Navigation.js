@@ -4,21 +4,46 @@ import { NavbarText, Nav, NavItem, NavLink } from 'reactstrap';
 import { UserContextNavigation } from '../auth';
 
 const routes = [
+  // {
+  //   title: 'Communities',
+  //   type: 'internal',
+  //   path: '/communities'
+  // },
+  // {
+  //   title: 'Posts',
+  //   type: 'internal',
+  //   path: '/posts'
+  // },
   {
-    title: 'Communities',
+    title: 'Portfolio',
     type: 'internal',
-    path: '/communities'
+    path: '/portfolio'
   },
   {
-    title: 'Posts',
+    title: 'Curriculum',
     type: 'internal',
-    path: '/posts'
+    path: '/curriculum'
+  },
+  {
+    title: 'Workplace learning',
+    type: 'internal',
+    path: '/workplace-learning'
+  },
+  {
+    title: 'Team',
+    type: 'internal',
+    path: '/team'
+  },
+  {
+    title: 'Blog',
+    type: 'internal',
+    path: '/blog'
   },
   {
     title: 'Contact',
     type: 'internal',
     path: '/contact'
-  }
+  },
 ];
 
 const Navigation = () => {
