@@ -8,6 +8,7 @@
     "seeder:posts": "babel-node src/posts-create.seeder.js --debug",
     "seeder:tags": "babel-node src/tags-create.seeder.js --debug",
     "seeder:users": "babel-node src/users-create.seeder.js --debug",
+    "seeder:educations": "babel-node src/educations-create.seeder.js --debug",
     "delete:communities": "babel-node src/collection-delete.seeder.js Community Communities --debug",
     "delete:posts": "babel-node src/collection-delete.seeder.js Post Posts --debug",
     "delete:profiles": "babel-node src/collection-delete.seeder.js Profile Profiles --debug",
