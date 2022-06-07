@@ -1,0 +1,37 @@
+.table {
+  color: white;
+  text-align: center;
+  margin: calc(calc(100vh - (3.5rem + 24.875rem)) / 2) auto;
+}
+
+td {
+  height: 4rem;
+}
+
+.learning_line__bg {
+  opacity: 0.2;
+}
+
+.table__head {
+  background-color: #7e57c5;
+}
+
+.Applied_Information_Technology {
+  background-color: #5ab946;
+}
+
+.Business_Communication {
+  background-color: #00a5d9;
+}
+
+.Computer_Programming {
+  background-color: #d20082;
+}
+
+.Creative_Design_Development {
+  background-color: #f58732;
+}
+
+.Workplace_Learning {
+  background-color: #ed0034;
+}
