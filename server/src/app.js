@@ -109,5 +109,5 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Express js listen method to run project on http://localhost:3000
 app.listen(PORT, () => {
-  console.log(`Application is running in ${NODE_ENV} mode on port ${PORT}`);
+  console.log(`Application is running in ${NODE_ENV} mode on http://localhost:${PORT}`);
 });
