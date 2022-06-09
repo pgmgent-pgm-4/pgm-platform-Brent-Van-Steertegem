@@ -1,0 +1,19 @@
+{
+    "name": "pgm-platform",
+    "version": "1.0.0",
+    "description": "PGM Platform",
+    "main": "index.js",
+    "scripts": {
+      "build:client": "cd client && npm install && npm run build",
+      "build:server": "cd server && npm install && npm run build",
+      "build": "npm run build:client && npm run build:server",
+      "start": "cd server && npm run start:build"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/pgmgent-pgm-4/pgm-platform-Brent-Van-Steertegem"
+    },
+    "author": "Brent Van Steertegem",
+    "license": "ISC",
+    "homepage": "https://github.com/pgmgent-pgm-4/pgm-platform-Brent-Van-Steertegem/README.md"
+  }

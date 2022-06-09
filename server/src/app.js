@@ -8,6 +8,9 @@ import cors from 'cors';
 import passportConfig from './config/passport';
 import globalRouter from './routes';
 
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 // Read .env settings
 dotenv.config();
 
@@ -109,5 +112,5 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Express js listen method to run project on http://localhost:3000
 app.listen(PORT, () => {
-  console.log(`Application is running in ${NODE_ENV} mode on http://localhost:${PORT}`);
+  console.log(`Application is running in ${NODE_ENV} mode on port ${PORT}`);
 });
