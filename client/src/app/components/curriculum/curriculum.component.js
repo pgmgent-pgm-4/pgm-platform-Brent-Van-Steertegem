@@ -38,6 +38,32 @@ const CurriculumComponent = (props) => {
             Semester 4
           </th>
         </tr>
+        <tr>
+          <th>
+            Periode 1
+          </th>
+          <th>
+            Periode 2
+          </th>
+          <th>
+            Periode 3
+          </th>
+          <th>
+            Periode 4
+          </th>
+          <th>
+            Periode 5
+          </th>
+          <th>
+            Periode 6
+          </th>
+          <th>
+            Periode 7
+          </th>
+          <th>
+            Periode 8
+          </th>
+        </tr>
       </thead>
       <tbody>
         {education.learningLines.map(learningLine => {

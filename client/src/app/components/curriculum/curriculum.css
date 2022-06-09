@@ -4,8 +4,13 @@
   margin: calc(calc(100vh - (3.5rem + 24.875rem)) / 2) auto;
 }
 
+td, th {
+  border: 1px solid white;
+}
+
 td {
   height: 4rem;
+  width: 8rem;
 }
 
 .learning_line__bg {

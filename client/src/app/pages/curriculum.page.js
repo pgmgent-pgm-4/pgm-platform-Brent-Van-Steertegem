@@ -1,7 +1,6 @@
 import { CurriculumComponent } from "../components/curriculum";
 import { gql, useQuery } from '@apollo/client';
 
-// import data from './test.json';
 const queryGetCurriculum = gql`
   query GetCurriculum {
     educations {
