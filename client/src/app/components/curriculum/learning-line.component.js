@@ -13,7 +13,7 @@ const LearningLine = (props) => {
 
   return (
     <tr className={'learning_line learning_line--'+props.learningLine}>
-      {courses.map(course => {
+      {courses && courses.map(course => {
         return course.title ? <Course key={course.title} title={course.title} learningLine={props.learningLine}/> : <td className={props.learningLine+' learning_line__bg'} key={course.alt}></td>
       })}
     </tr>

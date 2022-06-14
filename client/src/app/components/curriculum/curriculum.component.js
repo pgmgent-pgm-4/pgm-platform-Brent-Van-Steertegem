@@ -40,7 +40,7 @@ const CurriculumComponent = (props) => {
 return ( 
     <div className='curriculum'>
       <p className='filter'>
-        {specializations.map((specialization, i) => {
+        {specializations && specializations.map((specialization, i) => {
           return (
             <span key={'specialization'+i}>
               <button onClick={handleSpecializationChange} value={specialization} className={'filter__item filter__item--'+specializationSlugs[i]+(specialization === selectedSpecialization ? ' filter__item--active' : '')} key={specialization}>{specialization}</button>
@@ -109,7 +109,7 @@ return (
           </tr>
         </thead>
         <tbody>
-          {education.learningLines.map(learningLine => {
+          {education.learningLines && education.learningLines.map(learningLine => {
             return <LearningLine key={learningLine} learningLine={learningLine} courses={courses && courses.filter(course => course.learningLine === learningLine)}/>
           })}
         </tbody>
