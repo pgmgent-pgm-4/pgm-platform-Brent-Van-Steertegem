@@ -5,19 +5,15 @@ import client from './graphql_client';
 import { generateValueBetweenMinAndMax, generateTimestamps } from './utils';
 
 const mutationCreatePost = `
-mutation CreatePostMutation($title: String!, $body: RichTextAST, $authUserId: ID!, $communities: [CommunityWhereUniqueInput!], $tags: [TagWhereUniqueInput!]) {
+mutation CreatePostMutation($title: String!, $body: RichTextAST, $authUserId: ID!, $educations: [EducationWhereUniqueInput!]){
   __typename
-  createPost(data: {title: $title, body: $body, authUser: {connect: {id: $authUserId}}, communities: {connect: $communities}, tags: {connect: $tags}}) {
+  createPost(data: {title: $title, body: $body, authUser: {connect: {id: $authUserId}}, educations: {connect: $educations}}) {
     id
     title
     body {
       markdown
     }
-    tags {
-      name
-      id
-    }
-    communities {
+    educations {
       id
       name
     }
@@ -38,17 +34,9 @@ query GetAuthUsers {
   }
 }`;
 
-const queryGetCommunities = `
-query GetCommunities {
-  communities {
-    id
-    name
-  }
-}`;
-
-const queryGetTags = `
-query GetTags {
-  tags {
+const queryGetEducations = `
+query GetEducations {
+  educations {
     id
     name
   }
@@ -66,29 +54,17 @@ query GetTags {
     return body;
   }
 
-  const getTags = (tags, n = 1) => {
-    const tagsCopy = [...tags];
-    const tagsToBeInsertedIntoPost = [];
-    while (tagsToBeInsertedIntoPost.length < n) {
-      tagsToBeInsertedIntoPost.push(...tagsCopy.splice(generateValueBetweenMinAndMax(0, tagsCopy.length - 1), 1));
-    }
-    return tagsToBeInsertedIntoPost;
-  }
-
   // Get all the users
   let { authUsers } = await client.request(queryGetAuthUsers);
-  // Get all the communities
-  let { communities } = await client.request(queryGetCommunities);
-  // Get all the tags
-  let { tags } = await client.request(queryGetTags);
-  tags = [...tags.map(tag => { return { name: tag.name }})];
+  // Get all the educations
+  let { educations } = await client.request(queryGetEducations);
 
   /*
    * Create a Article = Post (Local Provider)
   */
-  const createArticle = async ({ title, body, authUserId, communities, tags }) => {
+  const createArticle = async ({ title, body, authUserId, educations }) => {
     try {
-      const { createPost } = await client.request(mutationCreatePost, { title, body, authUserId, communities, tags });
+      const { createPost } = await client.request(mutationCreatePost, { title, body, authUserId, educations});
 
       if (!createPost) {
         throw new Error(`Can't create the post with title ${createPost.title}!`);
@@ -108,10 +84,10 @@ query GetTags {
 
     for (let i=0; i < n;i++) {
       const authUserId = authUsers[generateValueBetweenMinAndMax(0, authUsers.length - 1)].id;
-      const community = communities[generateValueBetweenMinAndMax(0, communities.length - 1)];
+      const education = educations[generateValueBetweenMinAndMax(0, educations.length - 1)];
       const ast = await htmlToSlateAST(getRandomBody(generateValueBetweenMinAndMax(1, 4))); 
       
-      promises.push(await createArticle({title: faker.lorem.sentence(generateValueBetweenMinAndMax(4, 10)), body: { children: ast }, authUserId: authUserId, communities: [community], tags: getTags(tags, generateValueBetweenMinAndMax(1, 6)) }));
+      promises.push(await createArticle({title: faker.lorem.sentence(generateValueBetweenMinAndMax(4, 10)), body: { children: ast }, authUserId: authUserId, educations: [education]}));
     };
     
     return await Promise.all(promises);
