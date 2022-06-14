@@ -1,3 +1,13 @@
+.curriculum {
+  width: fit-content;
+  margin: calc(calc(100vh - (3.5rem + 44.8125rem)) / 2) auto;
+}
+
+.filter {
+  width: fit-content;
+  margin: 0 auto 4rem auto;
+}
+
 .filter__item {
   font-size: 1.5rem;
   font-weight: bold;
@@ -5,18 +15,23 @@
   border: 0;
 }
 
+.filter__item--active {
+  border-bottom: 2px solid;
+}
+
 .filter__item--Cloud_Application_Development {
   color: #d20082;
+  border-color: #d20082
 }
 
 .filter__item--Interactive_Media_Development {
   color: #f58732;
+  border-color: #f58732;
 }
 
 .table {
   color: white;
   text-align: center;
-  margin: calc(calc(100vh - (3.5rem + 36.8125rem)) / 2) auto;
 }
 
 td, th {

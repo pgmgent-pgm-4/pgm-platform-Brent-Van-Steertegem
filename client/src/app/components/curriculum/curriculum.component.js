@@ -26,6 +26,7 @@ const CurriculumComponent = (props) => {
   ));
 
   const handleSpecializationChange = (specialization) => {
+    setSelectedSpecialization(specialization.target.value);
     const newSpecialization = specialization.target.value.replaceAll(' ','_');
     const newCourses = [];
     education.courses.forEach((course) => {
@@ -37,12 +38,12 @@ const CurriculumComponent = (props) => {
   }
 
 return ( 
-    <>
+    <div className='curriculum'>
       <p className='filter'>
         {specializations.map((specialization, i) => {
           return (
             <span key={'specialization'+i}>
-              <button onClick={handleSpecializationChange} value={specialization} className={'filter__item filter__item--'+specializationSlugs[i]} key={specialization}>{specialization}</button>
+              <button onClick={handleSpecializationChange} value={specialization} className={'filter__item filter__item--'+specializationSlugs[i]+(specialization === selectedSpecialization ? ' filter__item--active' : '')} key={specialization}>{specialization}</button>
               <span key={'divider_'+i}>{i < specializations.length -1 ? ' of ' : ''}</span>
             </span>
           );
@@ -113,7 +114,7 @@ return (
           })}
         </tbody>
       </Table>
-    </>
+    </div>
   )
 };
 
