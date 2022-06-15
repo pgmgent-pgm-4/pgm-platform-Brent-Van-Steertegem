@@ -1,27 +1,28 @@
 import { gql, useQuery } from "@apollo/client";
+import { useParams, NavLink } from 'react-router-dom';
 
 
-const PostDetailsComponent = ({post}) => {
+const PostDetailsComponent = () => {
+  const {id} = useParams();
   const queryGetPost = gql`
-  query GetPost {
-    posts(where: {id: "${post.id}"}}) {
-      where
-      id
-      title
-      body {
-        html
-      }
-      authUser {
+    query GetPost {
+      posts(where: {id: "${id}"}) {
         id
-        memberType
-        username
-        profile {
-          avatar
-          firstname
-          lastname
+        title
+        body {
+          html
+        }
+        authUser {
+          id
+          memberType
+          username
+          profile {
+            avatar
+            firstname
+            lastname
+          }
         }
       }
-    }
   }`;
 
   const { loading, error, data } = useQuery(queryGetPost);
@@ -32,9 +33,10 @@ const PostDetailsComponent = ({post}) => {
 
     return (
       <div className="post-details">
-        <h1>{data.post.title}</h1>
-        <p>{data.post.description}</p>
-        <div className="" dangerouslySetInnerHTML={{ __html: data.post.body.html }}>
+        <NavLink to={'/blog'}>Return to blog</NavLink>
+        <h1>{data.posts[0].title}</h1>
+        <p>{data.posts[0].description}</p>
+        <div className="" dangerouslySetInnerHTML={{ __html: data.posts[0].body.html }}>
         </div>
       </div>
     )

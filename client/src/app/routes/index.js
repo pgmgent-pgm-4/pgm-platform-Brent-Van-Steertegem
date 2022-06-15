@@ -1,7 +1,7 @@
 export const LANDING = '/';
 export const HOME = '/home';
-export const POSTS = '/posts';
-export const POST_DETAILS = '/posts/:id';
+export const POSTS = '/blog';
+export const POST_DETAILS = '/post/:id';
 export const AUTH_SIGN_UP = '/auth/signup';
 export const AUTH_SIGN_IN = '/auth/sigin';
 export const ADMIN = '/admin';

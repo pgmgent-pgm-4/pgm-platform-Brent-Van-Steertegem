@@ -5,12 +5,25 @@ import PostSummaryComponent from "./post-summary.component";
 
 const PostsListComponent = () => {
   const queryGetPosts = gql`
-    query GetPosts {
-      posts {
-        id
-        title
+  query GetPost {
+    posts {
+      id
+      title
+      body {
+        html
       }
-    }`;
+      authUser {
+        id
+        memberType
+        username
+        profile {
+          avatar
+          firstname
+          lastname
+        }
+      }
+    }
+}`;
     
   const { loading, error, data } = useQuery(queryGetPosts);
 
