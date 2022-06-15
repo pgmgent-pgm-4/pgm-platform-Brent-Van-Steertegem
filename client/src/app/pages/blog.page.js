@@ -1,7 +1,7 @@
+import PostsListComponent from "../components/posts/posts-list.component";
+
 const BlogPage = () => {
-  return (
-    <p className="text-3xl font-bold underline">Blog</p>
-  );
+  return <PostsListComponent />;
 };
 
 export default BlogPage;
