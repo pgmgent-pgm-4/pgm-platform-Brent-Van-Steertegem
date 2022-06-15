@@ -7,7 +7,7 @@ const ContactComponent = () => {
         <h2>Contacteer de opleiding</h2>
         <span className='text'>Graduaat Programmeren</span>
         <span className='text'>Tel: 09 234 86 00</span>
-        <span className='text'>Email: <a className='contact_method__link' href=''>philippe.depauw@arteveldehs.be</a></span>
+        <span className='text'>Email: <a className='contact_method__link' href='mailto:philippe.depauw@arteveldehs.be'>philippe.depauw@arteveldehs.be</a></span>
         <span className='text'>Voor vragen over:</span>
         <ul>
           <li>Vakken</li>
@@ -40,7 +40,7 @@ const ContactComponent = () => {
       <div className='contact_method'>
         <h2>Contacteer de dienst studentenvoorzieningen (stuvo)</h2>
         <span className='text'>Tel: 09 234 92 30</span>
-        <span className='text'>Email: <a className='contact_method__link' href=''>stuvo@arteveldehs.be</a></span>
+        <span className='text'>Email: <a className='contact_method__link' href='mailto:stuvo@arteveldehs.be'>stuvo@arteveldehs.be</a></span>
         <span className='text'>Voor vragen over:</span>
         <ul>
           <li>Financiële plaatje van je inschrijving</li>
