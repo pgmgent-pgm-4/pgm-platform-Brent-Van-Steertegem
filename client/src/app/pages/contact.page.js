@@ -1,6 +1,8 @@
+import { ContactComponent } from "../components/contact";
+
 const ContactPage = () => {
   return (
-    <p className="text-3xl font-bold underline">Contact</p>
+    <ContactComponent />
   );
 };
 

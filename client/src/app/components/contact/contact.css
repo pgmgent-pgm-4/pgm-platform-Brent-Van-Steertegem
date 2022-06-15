@@ -1,0 +1,25 @@
+.contact_methods {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  margin: 2rem auto;
+  background-color: #dcebf4;
+}
+
+.contact_method {
+  width: 47.5%;
+}
+
+.contact_method__link {
+  color: inherit;
+}
+
+.text {
+  display: block;
+}
+
+.text--italic {
+  font-style: italic;
+}
