@@ -43,8 +43,8 @@ return (
         {specializations && specializations.map((specialization, i) => {
           return (
             <span key={'specialization'+i}>
-              <button onClick={handleSpecializationChange} value={specialization} className={'filter__item filter__item--'+specializationSlugs[i]+(specialization === selectedSpecialization ? ' filter__item--active' : '')} key={specialization}>{specialization}</button>
-              <span key={'divider_'+i}>{i < specializations.length -1 ? ' of ' : ''}</span>
+              <button onClick={handleSpecializationChange} value={specialization} className={`filter__item filter__item--${specializationSlugs[i]}${(specialization === selectedSpecialization ? ' filter__item--active' : '')}`} key={specialization}>{specialization}</button>
+              <span key={`divider_${i}`}>{i < specializations.length -1 ? ' of ' : ''}</span>
             </span>
           );
         })}

@@ -3,37 +3,65 @@ import Member from './member.component';
 import './team.css';
 
 const TeamComponent = (props) => {
-  const [users, setUsers] = useState(props.team.authUsers);
+  const users = props.team.authUsers;
+  const memberTypes = [];
+  users.forEach((user) => {
+    if (!memberTypes.includes(user.memberType)) {
+      memberTypes.unshift(user.memberType);
+    }
+  });
+  memberTypes.unshift('All');
+  const [selectedMemberType, setSelectedMemberType] = useState(memberTypes[0]);
+
+  const handleSelectedMemberType = (memberType) => {
+    setSelectedMemberType(memberType.target.value);
+  }
+
   return ( 
     <>
-      <div className='team team--lecturers'>
-        <h2 className='team__title'>Lecturers</h2>
-        <ul className='team__list'>
-          {users && users.filter((user) => {
-            return user.memberType === 'Lecturer';
-          }).map((user) => {
-            return (
-              <li key={user.username}>
-                <Member user={user}/>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className='team team--students'>
-        <h2 className='team__title'>students</h2>
-        <ul className='team__list'>
-          {users && users.filter((user) => {
-            return user.memberType === 'Student';
-          }).map((user) => {
-            return (
-              <li key={user.username}>
-                <Member user={user}/>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <section className='filter'>
+        {memberTypes && memberTypes.map((memberType) => {
+          return (
+              <button onClick={handleSelectedMemberType} value={memberType} className={`filter__item${(memberType === selectedMemberType ? ' filter__item--active' : '')}`} key={memberType}>{memberType}{memberType !== 'All' ? 's' : ''}</button>
+          );
+        })}
+      </section>
+      {memberTypes && selectedMemberType === 'All' ? memberTypes.map((memberType) => {
+        if (memberType !== 'All') {
+          return (
+            <div key={memberType} className={`team team--${memberType.toLowerCase()}s`}>
+              <h2 className='team__title'>{memberType}s</h2>
+              <ul className='team__list'>
+                {users && users.filter((user) => {
+                  return user.memberType === memberType;
+                }).map((user) => {
+                  return (
+                    <li key={user.username}>
+                      <Member user={user}/>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        }
+        return null;
+      }) :
+        <div className={`team team--${selectedMemberType.toLowerCase()}s`}>
+          <h2 className='team__title'>{selectedMemberType}s</h2>
+          <ul className='team__list'>
+            {users && users.filter((user) => {
+              return user.memberType === selectedMemberType;
+            }).map((user) => {
+              return (
+                <li key={user.username}>
+                  <Member user={user}/>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      }
     </>
   )
 };
