@@ -8,7 +8,6 @@ const LoginComponent = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
@@ -21,34 +20,38 @@ const LoginComponent = () => {
     setPassword(e.target.value);
   };
 
-  const handlePasswordConfirmationChange = (e) => {
-    e.target.value === password ? setPasswordCheck(true) : setPasswordCheck(false);
-  };
-
-  const login = () => {
+  const login = async () => {
     const fetchData = async () => {
-      await signInWithEmailAndPassword(username, password);
+      const res = await signInWithEmailAndPassword(username, password);
+      return res;
     }
-    const data = fetchData();
-    return data;
+    return await fetchData();
   }
   
-  const handleSubmit = (e) => {
-    if (passwordCheck) {
-      const data = login();
-      navigate("/");
+  const handleSubmit = async(e) => {
+    const res = await login();
+    if (res.status === 200) {
+      navigate('/');
+    }
+    else {
+      switch (res.status) {
+        case 404:
+            setErrorMessage('Gebruikersnaam of wachtwoord is onjuist');
+          break;
+      
+        default:
+          break;
+      }
     }
   };
 
   return (
     <form className="form">
-      <p className="error_message"></p>
-      <label htmlFor="username">Username:</label>
+      <p className="error_message">{errorMessage}</p>
+      <label htmlFor="username">Gebruikersnaam:</label>
       <input className="form__input" name="username" type="text" placeholder="Username" onChange={handleUsernameChange}/>
-      <label htmlFor="password">Password:</label>
+      <label htmlFor="password">Wachtwoord:</label>
       <input className="form__input" name="password" type="password" placeholder="Password" onChange={handlePasswordChange}/>
-      <label htmlFor="password_confirm">Confirm password:</label>
-      <input className="form__input" name="password_confirm" type="password" placeholder="Confirm Password" onChange={handlePasswordConfirmationChange}/>
       <button className="form__input form__input--button" type="button" onClick={handleSubmit}>Login</button>
     </form>
   )

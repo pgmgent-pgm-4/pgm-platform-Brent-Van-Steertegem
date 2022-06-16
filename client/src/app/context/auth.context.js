@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import settings from '../config/settings'
+import { concatPagination } from '@apollo/client/utilities';
 
 const AuthContext = createContext(null);
 const useAuth = () => useContext(AuthContext);
@@ -23,10 +24,13 @@ const AuthProvider = ({children}) => {
           password: password,
         })
       });
-      const user = await response.json();      
-      if (user) {
-        setCurrentUser(user);      
-      }      
+      if (response.status === 200) {
+        const user = await response.json();      
+        if (user) {
+          setCurrentUser(user);      
+        } 
+      } 
+      return response;
     } catch (error) {
       console.log(error);
     }    

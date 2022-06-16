@@ -1,24 +1,23 @@
 .form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  width: fit-content;
+  width: 24rem;
   margin: 0 auto;
   padding: 2rem;
 }
 
 .error_message {
   color: red;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
 }
 
 .form__input {
-  /* width: 100%; */
   margin-bottom: 1rem;
 }
 
 .form__input--button {
-  margin-top: 0.5rem;
+  margin: 0.5rem auto;
+  width: 6rem;
 }
