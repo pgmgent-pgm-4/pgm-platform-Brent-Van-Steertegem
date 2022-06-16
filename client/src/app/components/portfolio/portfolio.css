@@ -1,0 +1,10 @@
+.portfolio__title {
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.portfolio__add_btn {
+  position: absolute;
+  top: 6rem;
+  right: 2rem;
+}

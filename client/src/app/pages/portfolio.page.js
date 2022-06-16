@@ -1,6 +1,8 @@
+import { PortfolioComponent } from "../components/portfolio"
+
 const PortfolioPage = () => {
   return (
-    <p className="text-3xl font-bold underline">Portfolio</p>
+    <PortfolioComponent />
   );
 };
 
