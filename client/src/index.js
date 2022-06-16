@@ -14,7 +14,7 @@ import {
 import App from './app';
 
 // Utilities
-import { BlogPage, ContactPage, CurriculumPage, HomePage, PortfolioPage, TeamPage, WorkplaceLearningPage } from './app/pages';
+import { BlogPage, ContactPage, CurriculumPage, HomePage, LoginPage, PortfolioPage, TeamPage, WorkplaceLearningPage } from './app/pages';
 import { PostDetailsComponent } from './app/components/posts';
 import { AuthProvider, GraphCMSProvider } from './app/context';
 import { AdminLayout, PublicLayout, UserLayout } from './app/components/layout';
@@ -35,16 +35,14 @@ ReactDOM.render(
               <Route path="portfolio" element={<PortfolioPage />} />
               <Route path="team" element={<TeamPage />} />
               <Route path="workplace-learning" element={<WorkplaceLearningPage />} />
-              {/* <Route path="posts" element={<PostsPage />} />   */}
-              {/* <Route path="communities" element={<CommunitiesPage />} />  */}
+              <Route path="auth/login" element={<LoginPage/>} />
             </Route>            
             <Route path="user" element={<UserLayout />}>
-              <Route index element ={<HomePage/>} />
-              {/* <Route path="profile" element ={<PostsPage/>} /> */}
+              <Route index element={<HomePage/>} />
+              {/* <Route path="auth/login" element={<LoginPage/>} /> */}
             </Route>
             <Route path="admin" element={<AdminLayout />}>
-              <Route index element ={<HomePage/>} />
-              {/* <Route path="posts" element ={<PostsPage/>} /> */}
+              <Route index element={<HomePage/>} />
             </Route>
             <Route
                 path="*"
