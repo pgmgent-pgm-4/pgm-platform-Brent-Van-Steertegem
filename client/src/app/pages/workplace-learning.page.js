@@ -1,4 +1,4 @@
-import { WorkplaceLearningComponent } from "../components/workplace_learning";
+import WorkplaceLearningComponent from "../components/workplace_learning";
 
 const WorkplaceLearningPage = () => {
   return (

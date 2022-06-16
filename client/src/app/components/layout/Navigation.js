@@ -1,19 +1,9 @@
-import { Fragment } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import { NavbarText, Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import { UserContextNavigation } from '../auth';
 
 const routes = [
-  // {
-  //   title: 'Communities',
-  //   type: 'internal',
-  //   path: '/communities'
-  // },
-  // {
-  //   title: 'Posts',
-  //   type: 'internal',
-  //   path: '/posts'
-  // },
+
   {
     title: 'Portfolio',
     type: 'internal',

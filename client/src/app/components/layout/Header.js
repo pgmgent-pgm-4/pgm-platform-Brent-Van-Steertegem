@@ -1,5 +1,5 @@
 import { NavLink as RRNavLink } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavLink, NavbarToggler, Collapse } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler, Collapse } from 'reactstrap';
 
 // Custom components
 import Navigation from './Navigation';
