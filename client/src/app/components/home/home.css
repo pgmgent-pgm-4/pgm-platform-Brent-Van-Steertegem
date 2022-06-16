@@ -1,0 +1,10 @@
+.home_component {
+  padding: 2rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.home_component__title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
