@@ -1,10 +1,11 @@
-.posts__list, .post_detail {
+.posts__list, .post, .post_detail {
   padding: 2rem;
   max-width: 60rem;
   margin: 0 auto;
 }
 
 .post {
+  padding: 0.5rem 2rem;
   margin-bottom: 0.5rem;
 }
 
