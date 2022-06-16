@@ -3,7 +3,7 @@ import { gql, useQuery } from "@apollo/client";
 import PostSummaryComponent from "./post-summary.component";
 import './posts.css';
 
-const PostsListComponent = () => {
+const PostsListComponent = ({ amount, styling }) => {
   const queryGetPosts = gql`
   query GetPost {
     posts {
@@ -32,8 +32,8 @@ const PostsListComponent = () => {
     if (error) return <p>{JSON.stringify(error)}</p>;
 
     return (
-      <div className="posts__list">
-        {data.posts && data.posts.map((post) => (
+      <div className={`posts__list${styling ? ' post__list--'+styling : ''}`}>
+        {data.posts && data.posts.slice(0, amount ? amount : data.posts.length).map((post) => (
           <PostSummaryComponent key={post.title.toLowerCase().trim().replaceAll(' ','_')} post={post} />
         ))}
         <Outlet />

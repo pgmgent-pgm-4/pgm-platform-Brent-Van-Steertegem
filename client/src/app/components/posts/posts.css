@@ -4,6 +4,16 @@
   margin: 0 auto;
 }
 
+.post__list--grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post__list--grid .post {
+  width: 32%;
+  margin: 0;
+}
+
 .post {
   padding: 0.5rem 2rem;
   margin-bottom: 0.5rem;
