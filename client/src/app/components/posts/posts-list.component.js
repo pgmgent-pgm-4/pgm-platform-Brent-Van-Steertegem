@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 import PostSummaryComponent from "./post-summary.component";
-
+import './posts.css';
 
 const PostsListComponent = () => {
   const queryGetPosts = gql`
@@ -32,7 +32,7 @@ const PostsListComponent = () => {
     if (error) return <p>{JSON.stringify(error)}</p>;
 
     return (
-      <div className="posts-list">
+      <div className="posts__list">
         {data.posts && data.posts.map((post) => (
           <PostSummaryComponent key={post.title.toLowerCase().trim().replaceAll(' ','_')} post={post} />
         ))}

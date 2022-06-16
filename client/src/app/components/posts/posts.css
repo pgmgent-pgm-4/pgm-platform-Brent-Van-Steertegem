@@ -1,0 +1,14 @@
+.posts__list {
+  padding: 2rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.post {
+  margin-bottom: 0.5rem;
+}
+
+.post__link {
+  color: black;
+  text-decoration: none;
+}

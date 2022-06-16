@@ -1,5 +1,7 @@
 .workplace_learning {
-  padding: 2rem
+  padding: 2rem;
+  max-width: 60rem;
+  margin: 0 auto;
 }
 
 .workplace_learning__title {
