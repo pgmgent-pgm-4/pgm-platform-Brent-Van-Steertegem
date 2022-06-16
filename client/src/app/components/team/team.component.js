@@ -19,7 +19,7 @@ const TeamComponent = (props) => {
 
   return ( 
     <>
-      <section className='filter'>
+      <section className='filter filter--team'>
         {memberTypes && memberTypes.map((memberType) => {
           return (
               <button onClick={handleSelectedMemberType} value={memberType} className={`filter__item${(memberType === selectedMemberType ? ' filter__item--active' : '')}`} key={memberType}>{memberType === 'All' ? 'Iedereen' : memberType === 'Lecturer' ? 'Docenten' : memberType === 'Student' ? 'Studenten' : ''}</button>
