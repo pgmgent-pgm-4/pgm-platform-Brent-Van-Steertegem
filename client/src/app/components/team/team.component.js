@@ -22,7 +22,7 @@ const TeamComponent = (props) => {
       <section className='filter'>
         {memberTypes && memberTypes.map((memberType) => {
           return (
-              <button onClick={handleSelectedMemberType} value={memberType} className={`filter__item${(memberType === selectedMemberType ? ' filter__item--active' : '')}`} key={memberType}>{memberType}{memberType !== 'All' ? 's' : ''}</button>
+              <button onClick={handleSelectedMemberType} value={memberType} className={`filter__item${(memberType === selectedMemberType ? ' filter__item--active' : '')}`} key={memberType}>{memberType === 'All' ? 'Iedereen' : memberType === 'Lecturer' ? 'Docenten' : memberType === 'Student' ? 'Studenten' : ''}</button>
           );
         })}
       </section>
@@ -30,7 +30,7 @@ const TeamComponent = (props) => {
         if (memberType !== 'All') {
           return (
             <div key={memberType} className={`team team--${memberType.toLowerCase()}s`}>
-              <h2 className='team__title'>{memberType}s</h2>
+              <h2 className='team__title'>{memberType === 'Lecturer' ? 'Docenten' : memberType === 'Student' ? 'Studenten' : ''}</h2>
               <ul className='team__list'>
                 {users && users.filter((user) => {
                   return user.memberType === memberType;
@@ -48,7 +48,7 @@ const TeamComponent = (props) => {
         return null;
       }) :
         <div className={`team team--${selectedMemberType.toLowerCase()}s`}>
-          <h2 className='team__title'>{selectedMemberType}s</h2>
+          <h2 className='team__title'>{selectedMemberType === 'Lecturer' ? 'Docenten' : selectedMemberType === 'Student' ? 'Studenten' : ''}</h2>
           <ul className='team__list'>
             {users && users.filter((user) => {
               return user.memberType === selectedMemberType;
