@@ -38,7 +38,6 @@ const LoginComponent = () => {
         case 404:
             setErrorMessage('Gebruikersnaam of wachtwoord is onjuist');
           break;
-      
         default:
           break;
       }
@@ -49,9 +48,9 @@ const LoginComponent = () => {
     <form className="form">
       <p className="error_message">{errorMessage}</p>
       <label htmlFor="username">Gebruikersnaam:</label>
-      <input className="form__input" name="username" type="text" placeholder="Username" onChange={handleUsernameChange}/>
+      <input className="form__input" name="username" type="text" placeholder="Gebruikersnaam" onChange={handleUsernameChange}/>
       <label htmlFor="password">Wachtwoord:</label>
-      <input className="form__input" name="password" type="password" placeholder="Password" onChange={handlePasswordChange}/>
+      <input className="form__input" name="password" type="password" placeholder="Wachtwoord" onChange={handlePasswordChange}/>
       <button className="form__input form__input--button" type="button" onClick={handleSubmit}>Login</button>
     </form>
   )

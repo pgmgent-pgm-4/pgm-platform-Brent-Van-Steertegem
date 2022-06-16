@@ -22,7 +22,7 @@ const UserContextNavigation = () => {
               <NavLink tag={RRNavLink} to={routes.AUTH_SIGN_IN}>Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} to={routes.AUTH_SIGN_UP}>Register</NavLink>
+              <NavLink tag={RRNavLink} to={routes.AUTH_SIGN_UP}>Registreer</NavLink>
             </NavItem>
           </>
         )

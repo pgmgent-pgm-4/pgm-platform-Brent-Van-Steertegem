@@ -4,6 +4,7 @@ import CurriculumPage from './curriculum.page';
 import HomePage from "./home.page";
 import LoginPage from "./auth/login.page";
 import PortfolioPage from "./portfolio.page";
+import RegisterPage from "./auth/register.page";
 import TeamPage from "./team.page";
 import WorkplaceLearningPage from "./workplace-learning.page";
 
@@ -14,6 +15,7 @@ export {
   HomePage,
   LoginPage,
   PortfolioPage,
+  RegisterPage,
   TeamPage,
   WorkplaceLearningPage
 }
